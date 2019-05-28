@@ -1,0 +1,16 @@
+<html>
+<head><title></title></head>
+
+<body>
+
+{% if all_sh_host %}
+    <ul>
+        {% for host in all_sh_host %}
+        <li><a href="{% url 'LA:detail' host.host_name %}">{{host.host_name}}</a>  <a href="{% url 'LA:owner' host.owner%}">{{host.owner}}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>no host</p>
+{% endif %}
+</body>
+</html>

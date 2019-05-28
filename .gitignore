@@ -260,3 +260,5 @@ paket-files/
 __pycache__/
 *.pyc
 /LABIOC/env
+/LABIOC/static/admin
+/LABIOC/.mypy_cache/3.6
