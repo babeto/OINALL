@@ -10,16 +10,27 @@ table .title {
 
 #header {
     margin: 10px 30px 10px 30px;
-    font-size:45px;
-    text-align:center;
+    font-size: 45px;
+    text-align: center;
+    font-weight: bold;
 }
 
 #navigation {
-    margin: 10px
+    
+}
+#navigation ul {
+   
 }
 
-#navigation li {
+#navigation ul li {
     display: inline;
+    
+}
+
+#navigation ul li a {
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
 }
 
 #divide hr{
