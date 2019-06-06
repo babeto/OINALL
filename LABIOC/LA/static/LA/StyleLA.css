@@ -1,0 +1,31 @@
+body
+{
+}
+
+table .title {
+    color: white;
+    background-color: #006699;
+    font-weight: bold;
+}
+
+#header {
+    margin: 10px 30px 10px 30px;
+    font-size:45px;
+    text-align:center;
+}
+
+#navigation {
+    margin: 10px
+}
+
+#navigation li {
+    display: inline;
+}
+
+#divide hr{
+    margin: 10px 30px 10px 30px;
+}
+
+#content {
+    margin: 10px 30px 10px 30px;
+}

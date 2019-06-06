@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'LA/StyleLA.css' %}" />
+    <title>CMSE Lab</title>
+</head>
+<body>
+    <div id="header"><span>CMSE LAB Management</span></div>
+    <div id="navigation">
+        <ul>
+            <li>
+                <a id="lnkHome" href="{%url 'LA:index' %}">Shanghai Host</a>
+            </li>
+            <li>
+                <a id="lnkSHVM" href="{% url 'LA:shVM' %}">Shanghai VMs</a>
+            </li>
+            <li>
+                <a id="lnkRedHost" href="{% url 'LA:redHost' %}">Redmond Host</a>
+            </li>
+            <li>
+                <a id="lnkRedVM" href="{% url 'LA:redVM' %}">Redmond Host</a>
+            </li>
+        </ul>
+    </div>
+    <div id="divide"><hr align="center" color =" #987cb9" size="1" /></div>
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div class="page-footer"><span>Power by CMSE LAB</span></div>
+</body>
+</html>

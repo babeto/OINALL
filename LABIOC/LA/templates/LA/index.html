@@ -1,16 +1,30 @@
-<html>
-<head><title></title></head>
+{% extends "base.html" %}
+{% block content %}
 
-<body>
-
+<div class="content">
 {% if all_sh_host %}
-    <ul>
+<form action="{% url 'LA:detailList' %} " method="POST">
+    {% csrf_token %}
+        <table border="1">
+            <tr class="title">
+                <td>O</td>
+                <td>Machine</td>
+                <td>Owner</td>
+            </tr>
         {% for host in all_sh_host %}
-        <li><a href="{% url 'LA:detail' host.host_name %}">{{host.host_name}}</a>  <a href="{% url 'LA:owner' host.owner%}">{{host.owner}}</a></li>
+
+            <tr>
+                <td><input type="checkbox" name="host_name" value="{{host.host_name}}" /></td>
+                <td><a href="{% url 'LA:detail' host.host_name %}">{{host.host_name}}</a> </td>
+                <td><a href="{% url 'LA:owner' host.owner%}">{{host.owner}}</a></td>
+            </tr>
         {% endfor %}
-    </ul>
+        </table>
+        <input type="submit", value="select MACHINES" />
 {% else %}
     <p>no host</p>
 {% endif %}
-</body>
-</html>
+</form>
+</div>
+
+{% endblock %}
