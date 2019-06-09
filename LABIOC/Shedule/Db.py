@@ -11,7 +11,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "LABIOC.settings")
 django.setup()
 
 
-from Helper import JsonHelper
+from Helper import MyJsonHelper
 import Update
 import subprocess
 
@@ -61,7 +61,10 @@ if __name__ == "__main__":
 
     ip = getVMIP('CMSE-5665903','.\\administrator','User@123','valvin1810EC1')
     print(ip)
-    dt=getupdate(ip)
+    dt=getupdate('CMSE-4198321')
     print(dt)
-    updateList = JsonHelper.parseJson(dt)
-    print(updateList)
+    updateList = MyJsonHelper.MyJsonHelper.parseJson(dt)
+    for i in updateList:
+        print(i.updateTitle)
+        print(i.updateKB)
+        print(i.installedDate)

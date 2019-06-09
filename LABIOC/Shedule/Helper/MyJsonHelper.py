@@ -1,25 +1,26 @@
 import os
 import sys
 import json
+import time
 rootPath = os.path.abspath(os.path.join(os.getcwd(),".."))
 print(rootPath)
 print(sys.path)
 
-import Shedule.Update
+from Shedule import Update
 
-class JsonHelper(object):
+class MyJsonHelper(object):
     """description of class"""
     
-    @classmethod
+    @staticmethod
     def parseJson(data):
         installedUpdate=[]
         dic = json.loads(data)
         for iupdate in dic:
-            update = Update()
+            update = Update.Update()
             update.updateTitle=iupdate["Title"]
             update.updateKB=iupdate["HotfixID"]
-            timestamp=int(iupdate["Date"][7:-3])
-            timearray=time.localtime(timestamp)
-            update.installedDate = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
+            timestamp=int(iupdate["Date"][6:-2])/100 #transform minisecond to second
+            timearray = time.localtime(timestamp)
+            update.installedDate = time.strftime("%Y-%m-%d %H:%M:%S", timearray)
             installedUpdate.append(update)
         return installedUpdate
