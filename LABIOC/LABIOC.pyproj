@@ -33,7 +33,7 @@
     <Compile Include="Shedule\Db.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="shedule\Helper\JsonHelper.py">
+    <Compile Include="Shedule\Helper\MyJsonHelper.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="shedule\Helper\__init__.py">

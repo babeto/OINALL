@@ -12,4 +12,4 @@ class WMIHelper(object):
 
     @classmethod
     def getVMIP(machineName, Username, Password, VMName):
-        remoteWmi = 
+        pass
