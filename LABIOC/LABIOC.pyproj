@@ -30,6 +30,54 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Shedule\Db.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="shedule\Helper\JsonHelper.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="shedule\Helper\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shedule\HyperV.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shedule\Update.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shedule\Log.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shedule\Machine.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shedule\PhysicalMachine.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="shedule\Helper\RegHelper.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shedule\VirtualMachine.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="shedule\Helper\CMDHelper.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="shedule\Helper\PowerShellHelper.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shedule\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LA\sheduletask\Machine.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="shedule\Helper\WMIHelper.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LA\sheduletask\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="manage.py" />
     <Compile Include="LABIOC\__init__.py" />
     <Compile Include="LABIOC\settings.py" />
@@ -47,8 +95,12 @@
     <Compile Include="LA\__init__.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="LA\sheduleTask\PowerShellScripts\AddMachineIntoTrustedHost.ps1" />
+    <Content Include="LA\sheduleTask\PowerShellScripts\GetVMIP.ps1" />
+    <Content Include="LA\sheduleTask\PowerShellScripts\ScanAllInstalledHotfixes.ps1" />
+    <Content Include="LA\sheduleTask\PowerShellScripts\ScanSCEPInformation.ps1" />
     <Content Include="LA\static\LA\StyleLA.css" />
-    <Content Include="LA\templates\LA\base.html" />
+    <Content Include="LA\templates\base.html" />
     <Content Include="LA\templates\LA\detailList.html" />
     <Content Include="LA\templates\LA\details.html" />
     <Content Include="LA\templates\LA\owner.html" />
@@ -57,15 +109,24 @@
     <Content Include="LA\templates\LA\SHVM.html" />
     <Content Include="requirements.txt" />
     <Content Include="LA\templates\LA\index.html" />
+    <Content Include="shedule\PowerShellScripts\AddMachineIntoTrustedHost.ps1" />
+    <Content Include="shedule\PowerShellScripts\GetVMIP.ps1" />
+    <Content Include="shedule\PowerShellScripts\ScanAllInstalledHotfixes.ps1" />
+    <Content Include="shedule\PowerShellScripts\ScanSCEPInformation.ps1" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="shedule\Helper\" />
     <Folder Include="LABIOC\" />
     <Folder Include="LA\" />
+    <Folder Include="LA\sheduleTask\PowerShellScripts\" />
     <Folder Include="LA\migrations\" />
+    <Folder Include="LA\sheduletask\" />
     <Folder Include="LA\static\" />
     <Folder Include="LA\static\LA\" />
     <Folder Include="LA\templates\" />
     <Folder Include="LA\templates\LA\" />
+    <Folder Include="Shedule\" />
+    <Folder Include="shedule\PowerShellScripts\" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="env\">

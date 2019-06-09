@@ -7,9 +7,11 @@ class SHHost(models.Model):
     ip = models.GenericIPAddressField(null=True)
     owner = models.CharField(max_length=200)
     os = models.CharField(max_length=200,null=True)
+    installedupdate = models.TextField()
     lastcu = models.CharField(max_length=200,null=True)
     compliant = models.BooleanField(default=False,null=True)
     lastscantime = models.DateTimeField(null=True)
+    rebootrequired = models.BooleanField(default=True)
     def __str__(self):
         return self.host_name
 
@@ -22,9 +24,11 @@ class SHVirtualMachine(models.Model):
     ip = models.GenericIPAddressField(null=True)
     owner = models.CharField(max_length=200)
     os = models.CharField(max_length=200,null=True)
+    installedupdate = models.TextField()
     lastcu = models.CharField(max_length=200,null=True)
     compliant = models.BooleanField(default=True)
     lastscantime = models.DateTimeField(null=True)
+    rebootrequired = models.BooleanField(default=True)
     loc_host = models.ForeignKey(SHHost,on_delete=models.CASCADE,db_column='host_name')
     def __str__(self):
         return self.vm_name
@@ -39,9 +43,11 @@ class REDHost(models.Model):
     ip = models.GenericIPAddressField(null=True)
     owner = models.CharField(max_length=200)
     os = models.CharField(max_length=200,null=True)
+    installedupdate = models.TextField()
     lastcu = models.CharField(max_length=200,null=True)
     compliant = models.BooleanField(default=False,null=True)
     lastscantime = models.DateTimeField(null=True)
+    rebootrequired = models.BooleanField(default=True)
     def __str__(self):
         return self.host_name
 
@@ -51,9 +57,11 @@ class REDVirtualMachine(models.Model):
     ip = models.GenericIPAddressField(null=True)
     owner = models.CharField(max_length=200)
     os = models.CharField(max_length=200,null=True)
+    installedupdate = models.TextField()
     lastcu = models.CharField(max_length=200,null=True)
     compliant = models.BooleanField(default=True)
     lastscantime = models.DateTimeField(null=True)
+    rebootrequired = models.BooleanField(default=True)
     loc_host = models.ForeignKey(REDHost,on_delete=models.CASCADE,db_column='host_name')
     def __str__(self):
         return self.vm_name
