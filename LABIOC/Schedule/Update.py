@@ -5,3 +5,5 @@ class Update(object):
         self.updateTitle=None
         self.updateKB=None
         self.installedDate=None
+
+    

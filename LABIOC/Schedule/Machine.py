@@ -1,6 +1,6 @@
 import os
-import hyperv
-import installedUpdate
+from Schedule.HyperV import HyperV
+from Schedule.Update import Update
 
 class Machine(object):
     """description of class"""

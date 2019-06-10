@@ -30,49 +30,49 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Shedule\Db.py">
+    <Compile Include="Schedule\Db.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Shedule\Helper\MyJsonHelper.py">
+    <Compile Include="Schedule\Helper\MyJsonHelper.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="shedule\Helper\__init__.py">
+    <Compile Include="Schedule\Helper\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Shedule\HyperV.py">
+    <Compile Include="Schedule\HyperV.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Shedule\Update.py">
+    <Compile Include="Schedule\Update.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Shedule\Log.py">
+    <Compile Include="Schedule\Helper\LogHelper.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Shedule\Machine.py">
+    <Compile Include="Schedule\Machine.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Shedule\PhysicalMachine.py">
+    <Compile Include="Schedule\PhysicalMachine.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="shedule\Helper\RegHelper.py">
+    <Compile Include="Schedule\Helper\RegHelper.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Shedule\VirtualMachine.py">
+    <Compile Include="Schedule\VirtualMachine.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="shedule\Helper\CMDHelper.py">
+    <Compile Include="Schedule\Helper\CMDHelper.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="shedule\Helper\PowerShellHelper.py">
+    <Compile Include="Schedule\Helper\PowerShellHelper.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Shedule\__init__.py">
+    <Compile Include="Schedule\__init__.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="LA\sheduletask\Machine.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="shedule\Helper\WMIHelper.py">
+    <Compile Include="Schedule\Helper\WMIHelper.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="LA\sheduletask\__init__.py">
@@ -109,13 +109,13 @@
     <Content Include="LA\templates\LA\SHVM.html" />
     <Content Include="requirements.txt" />
     <Content Include="LA\templates\LA\index.html" />
-    <Content Include="shedule\PowerShellScripts\AddMachineIntoTrustedHost.ps1" />
-    <Content Include="shedule\PowerShellScripts\GetVMIP.ps1" />
-    <Content Include="shedule\PowerShellScripts\ScanAllInstalledHotfixes.ps1" />
-    <Content Include="shedule\PowerShellScripts\ScanSCEPInformation.ps1" />
+    <Content Include="Schedule\PowerShellScripts\AddMachineIntoTrustedHost.ps1" />
+    <Content Include="Schedule\PowerShellScripts\GetVMIP.ps1" />
+    <Content Include="Schedule\PowerShellScripts\ScanAllInstalledHotfixes.ps1" />
+    <Content Include="Schedule\PowerShellScripts\ScanSCEPInformation.ps1" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="shedule\Helper\" />
+    <Folder Include="Schedule\Helper\" />
     <Folder Include="LABIOC\" />
     <Folder Include="LA\" />
     <Folder Include="LA\sheduleTask\PowerShellScripts\" />
@@ -125,8 +125,8 @@
     <Folder Include="LA\static\LA\" />
     <Folder Include="LA\templates\" />
     <Folder Include="LA\templates\LA\" />
-    <Folder Include="Shedule\" />
-    <Folder Include="shedule\PowerShellScripts\" />
+    <Folder Include="Schedule\" />
+    <Folder Include="Schedule\PowerShellScripts\" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="env\">

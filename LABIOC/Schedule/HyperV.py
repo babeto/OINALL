@@ -1,4 +1,4 @@
-from Helper import WMIHelper
+
 
 class HyperV(object):
     """description of class"""

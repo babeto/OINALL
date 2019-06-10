@@ -1,6 +1,7 @@
 import Machine
 import VirtualMachine
 import HyperV
+from Helper.WMIHelper import WMIHelper
 
 
 class PhysicalMachine(Machine):
@@ -14,3 +15,5 @@ class PhysicalMachine(Machine):
         pass
 
 
+    def getVMIP(vmname):
+        wmidt=WMIHelper.getVMIP(self.machineName,self.osName, self.user, self.password)
