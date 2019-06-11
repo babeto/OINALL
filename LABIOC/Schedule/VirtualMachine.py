@@ -4,7 +4,7 @@ from Schedule.Machine import Machine
 class VirtualMachine(Machine):
     """description of class"""
     def __init__(self):
-        super().__init__()
+        super().__init__(machinename)
         self.VMID=None
         self.hostName=None
         self.user=None

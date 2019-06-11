@@ -13,13 +13,13 @@ class MyJsonHelper(object):
     
     @staticmethod
     def parseJson(data):
-        installedUpdate=[]
+        installedUpdate = []
         dic = json.loads(data)
         for iupdate in dic:
             update = Update()
-            update.updateTitle=iupdate["Title"]
-            update.updateKB=iupdate["HotfixID"]
-            timestamp=int(iupdate["Date"][6:-2])/100 #transform minisecond to second
+            update.updateTitle = iupdate["Title"]
+            update.updateKB = iupdate["HotfixID"]
+            timestamp = int(iupdate["Date"][6:-2])/100 #transform minisecond to second
             timearray = time.localtime(timestamp)
             update.installedDate = time.strftime("%Y-%m-%d %H:%M:%S", timearray)
             installedUpdate.append(update)
