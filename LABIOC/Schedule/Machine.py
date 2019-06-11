@@ -23,3 +23,13 @@ class Machine(object):
         return self.rebootRequired
     def getSystemName():
         return self.systemName
+
+    def getupdate(machineobj):
+        args=[r"PowerShell",r".\\PowerShellScripts\\ScanAllInstalledHotfixes.ps1",r"-MachineName", machineobj,r"-Username", r".\administrator",r"-Password", r"User@123"]
+        try:
+            p=subprocess.Popen(args,stdout=subprocess.PIPE)
+            dt=p.stdout.read()
+            return dt
+        except Exception as e:
+            print(e)
+            

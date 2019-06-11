@@ -14,6 +14,7 @@ class PhysicalMachine(Machine):
     def hypervInstalled():
         pass
 
+    def getvmip(self,vmname):
+        ip=WMIHelper.getvmip(self.machineName,self.userName,self.password,vmname)
+        return ip
 
-    def getVMIP(vmname):
-        wmidt=WMIHelper.getVMIP(self.machineName,self.osName, self.user, self.password)
