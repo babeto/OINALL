@@ -8,6 +8,8 @@ class Machine(object):
         self.machineName=None
         self.systemName=None
         self.osName=None
+        self.userName=None
+        self.password=None
         self.ip=None
         self.location=None
         self.rebootRequired=None
