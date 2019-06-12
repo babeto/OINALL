@@ -1,18 +1,14 @@
-import sqlite3
+#--coding:utf-8--
+import time
+def test():
+    while true
+        try:
+            a = 1/0
+        except Exception as e:
+            print ("exception")
+            
+            #break
 
-db=sqlite3.connect("db.sqlite3")
-cursor=db.cursor()
+if __name__ == '__main__':
+    test()
 
-
-
-query = "update LA_SHHost set host_name='MSD-2880384' where id=4"
-
-cursor.execute(query)
-cursor.execute("select * from LA_SHHost")
-results=cursor.fetchall()
-for row in results:
-    print(row)
-
-cursor.close()
-db.commit()
-db.close()

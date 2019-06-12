@@ -30,7 +30,10 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Schedule\Db.py">
+    <Compile Include="Schedule\Lab.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Schedule\DB.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Schedule\Helper\MyJsonHelper.py">
@@ -40,6 +43,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Schedule\HyperV.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Schedule\Script.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Schedule\Update.py">

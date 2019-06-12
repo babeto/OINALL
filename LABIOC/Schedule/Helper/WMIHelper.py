@@ -1,10 +1,7 @@
 import os
 import sys
 import xml.dom.minidom as minidom
-# test ip
-import subprocess
-import re
-
+from Schedule.Helper.CMDHelper import CMDHelper
 
 rootPath = os.path.abspath(os.path.join(os.getcwd(),"../.."))
 sys.path.append(rootPath)
@@ -26,7 +23,7 @@ class WMIHelper(object):
             remotewmi = wmi.WMI(computer=machinename,user=username,password=password,namespace=namespace)
             return remotewmi.query(wql)
         except Exception as e:
-            LogHelper.append(' '.join(r'executeWMIQuery error:', str(e)))
+            LogHelper.append(' '.join([r'executeWMIQuery error:', str(e)]))
     
     @staticmethod
     def hypervexists(machinename, username, password):
@@ -36,7 +33,7 @@ class WMIHelper(object):
             remotewmi = wmi.WMI(computer=machinename,user=username,password=password,namespace=namespace)
             return True
         except Exception as e:
-            LogHelper.append(' '.join(r'hypervinstalled error:', str(e)))
+            LogHelper.append(' '.join([r'hypervinstalled error:', str(e)]))
             return False
 
     @staticmethod
@@ -48,7 +45,7 @@ class WMIHelper(object):
             for wmiobj in dt:
                 return wmiobj.Caption
         except Exception as e:
-            LogHelper.append(' '.join(r'getMachineOSName error:', str(e)))
+            LogHelper.append(' '.join([r'getMachineOSName error:', str(e)]))
 
     @staticmethod
     def getHostVMNameAndID(hostname, hostosname, username, password):
@@ -70,21 +67,73 @@ class WMIHelper(object):
         virtualnamespace = WMIHelper.getVirtualizationNamespace(osname)
         wql = "SELECT Name, Elementname FROM Msvm_ComputerSystem where EnabledState=2 and Caption='Virtual Machine'"
         vms = []
+
         try:
             dt = WMIHelper.executeWMIQuery(hostname,username,password,virtualnamespace,wql)
-            vm = VirtualMachine()
             for idt in dt:
-                vm.VMID = idt.Name
-                print(vm.VMID)
+                vm = VirtualMachine()
+                vm.vmid = idt.Name
+                print(vm.vmid)
                 vm.machineName = idt.ElementName
                 print(vm.machineName)
                 vm.hostName = hostname
                 print(vm.hostName)
                 vms.append(vm)
-            return vms
         except Exception as e:
-            LogHelper.append(' '.join(r'getAllVMsOnHost error:', str(e)))
+            LogHelper.append(' '.join(['getAllVMsOnHost error:', str(e)]))
 
+        try:
+            wql = "SELECT SystemName, GuestIntrinsicExchangeItems FROM Msvm_KvpExchangeComponent"
+            dt = WMIHelper.executeWMIQuery(hostname,username,password,virtualnamespace,wql)
+
+            for idt in dt:
+                
+                for index, vm in enumerate(vms):
+
+                    if vm.vmid != idt.SystemName:
+                        continue
+                        # print(vm.vmid)
+                        # print(idt.SystemName)
+                        # continue;
+                    property_dict = {}
+                    propertyxml = idt.GuestIntrinsicExchangeItems
+                    #print(idt)
+                    for eachpro in propertyxml:
+                        # print(propertyxml)
+                        eachprodict = WMIHelper.parsexmltodict(eachpro)
+                        # print(eachprodict)
+                        property_dict.update(eachprodict)
+                    # print(property_dict)
+                    
+                    try:
+                        print("trying get IP address...")
+                        ips = property_dict.get('RDPAddressIPv4')
+                        #print(ips)
+                        iparray = ips.split(';')
+                        for ip in iparray:
+                            if CMDHelper.testconnection(ip):
+                                vms[index].ip = ip
+                                break
+                    except Exception as e:
+                        LogHelper.append(' '.join([r'getAllVMsOnHost get ip error:', str(e)]))
+                        print(str(e))
+                        continue
+                    finally:
+                        try:
+                            print("trying get OS...")
+                            vms[index].osName = property_dict.get('OSName')
+                        except Exception as e:
+                            LogHelper.append(' '.join([r'getAllVMsOnHost get os error:', str(e)]))
+
+        except Exception as e:
+            LogHelper.append(' '.join([r'getAllVMsOnHost get ip error:', str(e)]))
+        for vm in vms:
+            print(vm.machineName)
+            print(vm.vmid)
+            print(vm.ip)
+            print(vm.osName)
+
+        return vms
 
     """propertyName:
     FullyQualifiedDomainName, OSName, OSVersion, OSMajorVersion, OSMinorVersion, OSBuildNumber, OSPlatformId, 
@@ -112,23 +161,10 @@ class WMIHelper(object):
                     property_dict.update(eachprodict)
                 print(property_dict)
         except Exception as e:
-            LogHelper.append(' '.join(r'getVMPropertyValue error:', str(e)))
+            LogHelper.append(' '.join([r'getVMPropertyValue error:', str(e)]))
         print(property)
         print(property_dict.get(property))
         return property_dict.get(property)
-
-    @staticmethod
-    def testconnection(ip):
-        p = subprocess.Popen(["ping.exe ", ip],stdin = subprocess.PIPE,stdout = subprocess.PIPE,stderr = subprocess.PIPE,shell = True)
-        out = p.stdout.read()
-        # out maybe different on locliazed os, need decode like print(out.decode('gbk')), so just check TTL
-        regex = re.compile("TTL=(\d+)", re.IGNORECASE)
-        ttllist = regex.findall(str(out))
-        if ttllist:
-            return True
-        else:
-            return False
-
 
     @staticmethod
     def getvmip(hostname,username,password,vmname):
@@ -139,11 +175,11 @@ class WMIHelper(object):
             print(ips)
             iparray = ips.split(';')
             for ip in iparray:
-                if WMIHelper.testconnection(ip):
+                if CMDHelper.testconnection(ip):
                     print(ip)
                     return ip
         except Exception as e:
-            LogHelper.append(' '.join(r'getvmip error:', str(e)))
+            LogHelper.append(' '.join([r'getvmip error:', str(e)]))
         return None
 
     @staticmethod
@@ -158,7 +194,7 @@ class WMIHelper(object):
                 vmid = idt.Name
                 return vmid
         except Exception as e:
-            LogHelper.append(' '.join(r'getvmid error:', str(e)))
+            LogHelper.append(' '.join([r'getvmid error:', str(e)]))
 
     @staticmethod
     def parsexmltodict(xmldt):
@@ -166,25 +202,25 @@ class WMIHelper(object):
         eroot = dom.documentElement
         itemlist = eroot.getElementsByTagName('PROPERTY')
         for item in itemlist:
-            print(item)
+            # print(item)
             if item.getAttribute('NAME') == 'Data':
                 elements = item.getElementsByTagName('VALUE')
                 try:
                     value = elements[0].firstChild.nodeValue
                 except Exception as e:
                     value = None
-                    LogHelper.append(' '.join(r'parsexmltodict:find Data Value error:', str(e)))
-                continue
+                    LogHelper.append(' '.join([r'parsexmltodict:find Data Value error:', str(e)]))
+                    continue
 
             if item.getAttribute('NAME') == 'Name':
                 elements = item.getElementsByTagName('VALUE')
                 try:
                     key = elements[0].firstChild.nodeValue
-                    print(key)
+                    # print(key)
                 except Exception as e:
                     key = None
-                    LogHelper.append(' '.join(r'parsexmltodict:find Name Value error:', str(e)))
-                continue
+                    LogHelper.append(' '.join([r'parsexmltodict:find Name Value error:', str(e)]))
+                    continue
 
         dtdict = {key:value}
         return dtdict
@@ -193,5 +229,6 @@ class WMIHelper(object):
 
 if __name__ == "__main__":
     print('start..')
-    WMIHelper.getVMPropertyValue('MSD-2880384', '.\Administrator', 'User@123', 'DW-Bench9-S1', '017345F8-F255-46E4-9A5C-855B430FC72E', 'RDPAddressIPv4')
-    WMIHelper.getvmip('CMSE-5665903', '.\Administrator', 'User@123', 'DW-Bench9-S1')
+    # WMIHelper.getVMPropertyValue('MSD-2880384', '.\Administrator', 'User@123', 'DW-Bench9-S1', '39C9FDA7-AC81-485A-81ED-18C60DAB7EE0', 'RDPAddressIPv4')
+    # WMIHelper.getvmip('CMSE-5665903', '.\Administrator', 'User@123', 'DW-Bench9-S1')
+    WMIHelper.getAllVMsOnHost('MSD-2880384', '.\Administrator', 'User@123')

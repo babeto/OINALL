@@ -22,6 +22,7 @@ class Patch(models.Model):
 
 class SHVirtualMachine(models.Model):
     vm_name = models.CharField(max_length=200)
+    vmid = models.UUIDField()
     ip = models.GenericIPAddressField(null=True)
     owner = models.CharField(max_length=200)
     os = models.CharField(max_length=200,null=True)
@@ -56,6 +57,7 @@ class REDHost(models.Model):
     
 class REDVirtualMachine(models.Model):
     vm_name = models.CharField(max_length=200)
+    vmid = models.UUIDField()
     ip = models.GenericIPAddressField(null=True)
     owner = models.CharField(max_length=200)
     os = models.CharField(max_length=200,null=True)

@@ -24,7 +24,15 @@ class DB(object):
     
 
     @classmethod
-    def updateSHPhyMach(DB,phymachinfo):
+    def readHostList(DB):
+        hostlist = []
+        allhosts = SHHOST.objects.all()
+        for host in allhosts:
+            hostlist.append(host.host_name)
+        return hostlist
+
+    @classmethod
+    def saveSHPhyMach(DB,phymachinfo):
         try:
             for phym in phymachinfo:
             shhost = SHHost.objects.get(host_name = phym.machineName)
@@ -45,13 +53,16 @@ class DB(object):
         return phymachinfo
 
     @classmethod
-    def updateSHVM(DB,virmachinfo):
+    def saveSHVM(DB,vmsinfo):
         try:
-            for vm in virmachinfo:
-                shvm = SHVirtualMachine.objects.get(vm_name = vn.machineName)
-                shvm.ip = vm.ip
-                shvm.installedupdate = vm.installedUpdate
-                shvm.save()
+            for vm in vmsinfo:
+                shvm = SHVirtualMachine.objects.get(vmid = vm.vmid)
+                if shvm != []:
+                    shvm.ip = vm.ip
+                    shvm.installedupdate = vm.installedUpdate
+                    shvm.save()
+                else
+                    SHVirtualMachine.objects.create(vm_name=vm.machineName,vmid=vm.vmid,ip=vm.ip, installedupdate=vm.installedUpdate )
         except Exception as e:
             LogHelper.append(' '.join(r'DB.updateSHVM error:', str(e)))
 
