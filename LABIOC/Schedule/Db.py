@@ -1,7 +1,3 @@
-
-from Schedule.PhysicalMachine import PhysicalMachine
-from Schedule.Helper.LogHelper import LogHelper
-
 import os
 import sys
 import django
@@ -13,6 +9,11 @@ sys.path.append(rootPath)
 sys.path.append(curPath)
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "LABIOC.settings")
 django.setup()
+
+
+from Schedule.PhysicalMachine import PhysicalMachine
+from Schedule.Helper.LogHelper import LogHelper
+
 
 from LA.models import SHHost
 from LA.models import SHVirtualMachine
