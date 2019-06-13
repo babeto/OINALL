@@ -15,7 +15,7 @@ from LA.models import REDVirtualMachine
 #class Machine(object):
 #    """description of class"""
 
-Scan = ".\\sheduleTask\\PowerShellScripts\\ScanAllInstalledHotfixes.ps1"
+Scan = ".\\shedule\\PowerShellScripts\\ScanAllInstalledHotfixes.ps1"
 GetIP = ".\\sheduleTask\\PowerShellScripts\\GetVMIP.ps1"
 
 def getVM(machineobj):
@@ -29,12 +29,13 @@ def executePSScript(psscript):
     pass
 def getupdate(machineobj):
     try:
-        args=[r"PowerShell",r".\\sheduleTask\\PowerShellScripts\\ScanAllInstalledHotfixes.ps1",r"-MachineName", machineobj,r"-Username", r".\administrator",r"-Password", r"User@123"]
+        args=[r"PowerShell",r".\\schedule\\PowerShellScripts\\ScanAllInstalledHotfixes.ps1",r"-MachineName", machineobj,r"-Username", r".\administrator",r"-Password", r"User@123"]
+        print(args)
         p=subprocess.Popen(args,stdout=subprocess.PIPE)
         dt=p.stdout.read()
         return dt
     except Exception as e:
         print(e)
 if __name__ == "__main__":
-    dt=getupdate('cmse-4198321')
+    dt=getupdate('10.10.64.103')
     print(dt)

@@ -1,6 +1,6 @@
 
 from Schedule.PhysicalMachine import PhysicalMachine
-from Schedule.LogHelper import LogHelper
+from Schedule.Helper.LogHelper import LogHelper
 
 import os
 import sys
@@ -26,7 +26,7 @@ class DB(object):
     @classmethod
     def readHostList(DB):
         hostlist = []
-        allhosts = SHHOST.objects.all()
+        allhosts = SHHost.objects.filter(obsolete = False)
         for host in allhosts:
             hostlist.append(host.host_name)
         return hostlist
@@ -35,11 +35,11 @@ class DB(object):
     def saveSHPhyMach(DB,phymachinfo):
         try:
             for phym in phymachinfo:
-            shhost = SHHost.objects.get(host_name = phym.machineName)
-            shhost.vms = phym.vms
-            shhost.os = phym.osName
-            shhost.installedupdate = phym.installedUpdate
-            shhost.save()
+                shhost = SHHost.objects.get(host_name = phym.machineName)
+                shhost.vms = phym.vms
+                shhost.os = phym.osName
+                shhost.installedupdate = phym.installedUpdate
+                shhost.save()
         except Exception as e:
             LogHelper.append(' '.join(r'DB.updateSHPhyMachin error:', str(e)))
 
@@ -61,7 +61,7 @@ class DB(object):
                     shvm.ip = vm.ip
                     shvm.installedupdate = vm.installedUpdate
                     shvm.save()
-                else
+                else:
                     SHVirtualMachine.objects.create(vm_name=vm.machineName,vmid=vm.vmid,ip=vm.ip, installedupdate=vm.installedUpdate )
         except Exception as e:
             LogHelper.append(' '.join(r'DB.updateSHVM error:', str(e)))
@@ -70,7 +70,7 @@ class DB(object):
     def getSHVM(DB):
         pass
 
-        @classmethod
+    @classmethod
     def updateREDPhyMach(DB):
         pass
 

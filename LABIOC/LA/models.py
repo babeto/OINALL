@@ -1,18 +1,19 @@
 from django.db import models
-
+import uuid
 # Create your models here.
 
 class SHHost(models.Model):
     host_name = models.CharField(max_length=200)
-    ip = models.GenericIPAddressField(null=True)
+    ip = models.GenericIPAddressField(null=True,blank=True)
     owner = models.CharField(max_length=200)
-    os = models.CharField(max_length=200,null=True)
-    installedupdate = models.TextField(null=True)
-    lastcu = models.CharField(max_length=200,null=True)
-    compliant = models.BooleanField(default=False,null=True)
-    lastscantime = models.DateTimeField(null=True)
-    rebootrequired = models.BooleanField(default=True)
-    vms = models.TextField(null=True)
+    obsolete = models.BooleanField(default=False)
+    os = models.CharField(max_length=200,null=True,blank=True)
+    installedupdate = models.TextField(null=True,blank=True)
+    lastcu = models.CharField(max_length=200,null=True,blank=True)
+    compliant = models.BooleanField(default=False,null=True,blank=True)
+    lastscantime = models.DateTimeField(null=True,blank=True)
+    rebootrequired = models.BooleanField(default=True,blank=True)
+    vms = models.TextField(null=True,blank=True)
     def __str__(self):
         return self.host_name
 
@@ -22,15 +23,15 @@ class Patch(models.Model):
 
 class SHVirtualMachine(models.Model):
     vm_name = models.CharField(max_length=200)
-    vmid = models.UUIDField()
-    ip = models.GenericIPAddressField(null=True)
+    vmid = models.UUIDField(default=uuid.uuid4())
+    ip = models.GenericIPAddressField(null=True,blank=True)
     owner = models.CharField(max_length=200)
-    os = models.CharField(max_length=200,null=True)
-    installedupdate = models.TextField(null=True)
-    lastcu = models.CharField(max_length=200,null=True)
-    compliant = models.BooleanField(default=True)
-    lastscantime = models.DateTimeField(null=True)
-    rebootrequired = models.BooleanField(default=True)
+    os = models.CharField(max_length=200,null=True,blank=True)
+    installedupdate = models.TextField(null=True,blank=True)
+    lastcu = models.CharField(max_length=200,null=True,blank=True)
+    compliant = models.BooleanField(default=True,blank=True)
+    lastscantime = models.DateTimeField(null=True,blank=True)
+    rebootrequired = models.BooleanField(default=True,blank=True)
     loc_host = models.ForeignKey(SHHost,on_delete=models.CASCADE,db_column='host_name')
     def __str__(self):
         return self.vm_name
@@ -44,6 +45,7 @@ class REDHost(models.Model):
     host_name = models.CharField(max_length=200)
     ip = models.GenericIPAddressField(null=True)
     owner = models.CharField(max_length=200)
+    obsolete = models.BooleanField(default=False)
     os = models.CharField(max_length=200,null=True)
     installedupdate = models.TextField(null=True)
     lastcu = models.CharField(max_length=200,null=True)
@@ -57,7 +59,7 @@ class REDHost(models.Model):
     
 class REDVirtualMachine(models.Model):
     vm_name = models.CharField(max_length=200)
-    vmid = models.UUIDField()
+    vmid = models.UUIDField(default=uuid.uuid4())
     ip = models.GenericIPAddressField(null=True)
     owner = models.CharField(max_length=200)
     os = models.CharField(max_length=200,null=True)

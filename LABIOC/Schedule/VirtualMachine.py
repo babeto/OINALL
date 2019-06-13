@@ -9,8 +9,7 @@ class VirtualMachine(Machine):
         self.ip = None
         self.vmid=None
         self.hostName=None
-        self.user=None
-        self.password=None
+
 
     def getvmid():
         return self.vmid

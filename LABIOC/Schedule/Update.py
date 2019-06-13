@@ -6,4 +6,6 @@ class Update(object):
         self.updateKB=None
         self.installedDate=None
 
-    
+    def tojson(self):
+        updatedict = {'updateTitle':self.updateTitle,'updateKB':self.updateKB,'installedDate':self.installedDate}
+        return updatedict

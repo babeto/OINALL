@@ -19,6 +19,7 @@ class LogHelper(object):
         time = ''.join([time, r'.000+000'])
         logmsg ="<![LOG[%s]LOG]!><time=\"%s\" date=\"%s\" component=\"\" context=\"\" type=\"\" thread=\"\" file=\"\"> \n" % (message,time,date)
         f.writelines(logmsg)
+        print(logmsg)
 
 
     @classmethod

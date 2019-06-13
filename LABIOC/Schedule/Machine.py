@@ -1,5 +1,5 @@
 import os
-
+import subprocess
 
 
 #from Schedule.HyperV import HyperV
@@ -37,11 +37,22 @@ class Machine(object):
             LogHelper.append(' '.join(r'Machine.getOSName error:', str(e)))
     """
     def getInstalledUpdate(self, machinename, username, password):
-        args=[r"PowerShell",r".\\PowerShellScripts\\ScanAllInstalledHotfixes.ps1",r"-MachineName", machinename,r"-Username" ,username ,r"-Password", password]
+        print("scan %s started..."% machinename)
+        args=[r"PowerShell",r".\\PowerShellScripts\\ScanAllInstalledHotfixes.ps1",r"-MachineName", machinename, r"-Username" ,username ,r"-Password", password]
+        print(args)
+        p=subprocess.Popen(args,stdout=subprocess.PIPE)
+        dt=p.stdout.read()
+        self.installedUpdate = MyJsonHelper.parseJson(dt)
+        updateinfo = []
+        for update in self.installedUpdate:
+            updateinfo.append(update.tojson())
+            print(update.updateTitle)
+        return updateinfo
+        
+        """
         try:
-            p=subprocess.Popen(args,stdout=subprocess.PIPE)
-            dt=p.stdout.read()
-            self.installedUpdate = MyJsonHelper.parseJson(dt)
-            return self.installedUpdate
+
         except Exception as e:
-            LogHelper.append(' '.join(r'Machine.getInstalledUpdate error:', str(e)))
+            print(e)
+            LogHelper.append(' '.join([r'Machine.getInstalledUpdate error:', str(e)]))
+        """

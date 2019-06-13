@@ -8,7 +8,7 @@ $preTrustedList = (Get-Item wsman:localhost\client\trustedhosts).Value.Trim().To
 if($preTrustedList -eq "*")
 {
 }
-elseif([String]::IsNullOrEmpty($preTrustedList))  
+elseif([String]::IsNullOrEmpty($preTrustedList))
 {
     Set-Item wsman:localhost\client\trustedhosts -Value $MachineName -Force;
 }

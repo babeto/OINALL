@@ -19,7 +19,7 @@ class MyJsonHelper(object):
             update = Update()
             update.updateTitle = iupdate["Title"]
             update.updateKB = iupdate["HotfixID"]
-            timestamp = int(iupdate["Date"][6:-2])/100 #transform minisecond to second
+            timestamp = int(iupdate["Date"][6:-2])/1000 #transform minisecond to second
             timearray = time.localtime(timestamp)
             update.installedDate = time.strftime("%Y-%m-%d %H:%M:%S", timearray)
             installedUpdate.append(update)

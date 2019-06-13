@@ -1,11 +1,11 @@
 import os
 import sys
 
+
 rootPath = os.path.abspath(os.path.join(os.getcwd(),".."))
 sys.path.append(rootPath)
 print(rootPath)
 print(sys.path)
-
 
 from PhysicalMachine import PhysicalMachine
 from VirtualMachine import VirtualMachine
@@ -30,11 +30,12 @@ class Lab(object):
     def scanphysicalmachines(Lab):
         phymachinfo = []
         for phyname in Lab.physicalmachines:
+            print("start scan %s ..." %phyname)
             phym = PhysicalMachine(phyname)
             phym.osName = phym.getOSName()
-            phym.vms = phym.getallvms()
+            print(" OS of {0} is {1}".format(phyname, phym.osName))
             phym.installedUpdate = phym.getInstalledUpdate()
-            phymachinfo.append(phmy)
+            phymachinfo.append(phym)
         Lab.phymachinfo = phymachinfo
         return Lab.phymachinfo
 
@@ -50,15 +51,21 @@ class Lab(object):
 
     @classmethod
     def savephysicalinfo(Lab):
-        for phym in Lab.phymachinfo:
-            DB.saveSHPhyMach(phym)
+        DB.saveSHPhyMach(Lab.phymachinfo)
 
     @classmethod
     def savevmsinfo(Lab):
         for vm in Lab.vmsinfo:
             DB.saveSHVM(vm)
 
-if '__name__' == '__main__':
-    Lab.getallphysicalmachines
-    Lab.scanphysicalmachines
-    Lab.savephysicalinfo
+if __name__ == "__main__":
+    print("start...")
+    Lab.physicalmachines = ['MSD-2880384']
+    print(Lab.physicalmachines)
+    print("physical machines getted...")
+    Lab.scanphysicalmachines()
+    print("scan completed")
+    Lab.savephysicalinfo()
+    print("save completed")
+    Lab.scanallvms()
+    Lab.savevmsinfo()

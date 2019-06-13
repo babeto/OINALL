@@ -1,13 +1,13 @@
 import os
 import sys
 import xml.dom.minidom as minidom
-from Schedule.Helper.CMDHelper import CMDHelper
 
 rootPath = os.path.abspath(os.path.join(os.getcwd(),"../.."))
 sys.path.append(rootPath)
 print(rootPath)
 print(sys.path)
 
+from Schedule.Helper.CMDHelper import CMDHelper
 from Schedule.VirtualMachine import VirtualMachine
 
 from win32com.client import GetObject
@@ -20,6 +20,9 @@ class WMIHelper(object):
     @staticmethod
     def executeWMIQuery(machinename, username, password, namespace, wql):
         try:
+            print(machinename)
+            print(namespace)
+            print(wql)
             remotewmi = wmi.WMI(computer=machinename,user=username,password=password,namespace=namespace)
             return remotewmi.query(wql)
         except Exception as e:
@@ -27,13 +30,13 @@ class WMIHelper(object):
     
     @staticmethod
     def hypervexists(machinename, username, password):
-        osname = WMIHelper.getMachineOSName(hostname, username, password)
+        osname = WMIHelper.getMachineOSName(machinename, username, password)
         namespace = WMIHelper.getVirtualizationNamespace(osname)
         try:
             remotewmi = wmi.WMI(computer=machinename,user=username,password=password,namespace=namespace)
             return True
         except Exception as e:
-            LogHelper.append(' '.join([r'hypervinstalled error:', str(e)]))
+            LogHelper.append(' '.join([r'hyperv namespace test error:', str(e)]))
             return False
 
     @staticmethod
@@ -65,7 +68,10 @@ class WMIHelper(object):
     def getAllVMsOnHost(hostname, username, password):
         osname = WMIHelper.getMachineOSName(hostname,username,password)
         virtualnamespace = WMIHelper.getVirtualizationNamespace(osname)
-        wql = "SELECT Name, Elementname FROM Msvm_ComputerSystem where EnabledState=2 and Caption='Virtual Machine'"
+        # this query only return VMs in running
+        # wql = "SELECT Name, Elementname FROM Msvm_ComputerSystem where EnabledState=2 and Caption='Virtual Machine'"
+        # this query return all VMs including turned off VMs
+        wql = "SELECT Name, Elementname FROM Msvm_ComputerSystem where Caption='Virtual Machine'"        
         vms = []
 
         try:
@@ -81,7 +87,7 @@ class WMIHelper(object):
                 vms.append(vm)
         except Exception as e:
             LogHelper.append(' '.join(['getAllVMsOnHost error:', str(e)]))
-
+        print(len(vms))
         try:
             wql = "SELECT SystemName, GuestIntrinsicExchangeItems FROM Msvm_KvpExchangeComponent"
             dt = WMIHelper.executeWMIQuery(hostname,username,password,virtualnamespace,wql)
