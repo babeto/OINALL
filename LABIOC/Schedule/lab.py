@@ -55,17 +55,16 @@ class Lab(object):
 
     @classmethod
     def savevmsinfo(Lab):
-        for vm in Lab.vmsinfo:
-            DB.saveSHVM(vm)
+        DB.saveSHVM(Lab.vmsinfo)
 
 if __name__ == "__main__":
     print("start...")
     Lab.physicalmachines = ['MSD-2880384']
     print(Lab.physicalmachines)
     print("physical machines getted...")
-    Lab.scanphysicalmachines()
+    #Lab.scanphysicalmachines()
     print("scan completed")
-    Lab.savephysicalinfo()
+    #Lab.savephysicalinfo()
     print("save completed")
     Lab.scanallvms()
     Lab.savevmsinfo()

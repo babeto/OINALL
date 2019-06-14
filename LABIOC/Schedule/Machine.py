@@ -40,13 +40,20 @@ class Machine(object):
         print("scan %s started..."% machinename)
         args=[r"PowerShell",r".\\PowerShellScripts\\ScanAllInstalledHotfixes.ps1",r"-MachineName", machinename, r"-Username" ,username ,r"-Password", password]
         print(args)
-        p=subprocess.Popen(args,stdout=subprocess.PIPE)
-        dt=p.stdout.read()
-        self.installedUpdate = MyJsonHelper.parseJson(dt)
         updateinfo = []
-        for update in self.installedUpdate:
-            updateinfo.append(update.tojson())
-            print(update.updateTitle)
+        try:
+            p=subprocess.Popen(args,stdout=subprocess.PIPE)
+            dt=p.stdout.read()
+            # print(dt)
+            if dt != None:
+                self.installedUpdate = MyJsonHelper.parseJson(dt)
+            else:
+                self.installedUpdate = None
+            for update in self.installedUpdate:
+                updateinfo.append(update.tojson())
+                print(update.updateTitle)
+        except Exception as e:
+            print(str(e))
         return updateinfo
         
         """

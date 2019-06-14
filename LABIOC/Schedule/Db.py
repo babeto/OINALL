@@ -57,15 +57,18 @@ class DB(object):
     def saveSHVM(DB,vmsinfo):
         try:
             for vm in vmsinfo:
-                shvm = SHVirtualMachine.objects.get(vmid = vm.vmid)
-                if shvm != []:
+                host = SHHost.objects.get(host_name=vm.hostName)
+                try:
+                    shvm = SHVirtualMachine.objects.get(vmid = vm.vmid)
                     shvm.ip = vm.ip
                     shvm.installedupdate = vm.installedUpdate
+                    shvm.os = vm.osName
                     shvm.save()
-                else:
-                    SHVirtualMachine.objects.create(vm_name=vm.machineName,vmid=vm.vmid,ip=vm.ip, installedupdate=vm.installedUpdate )
+                except SHVirtualMachine.DoesNotExist:
+                    SHVirtualMachine.objects.create(vm_name=vm.machineName,vmid=vm.vmid,ip=vm.ip, installedupdate=vm.installedUpdate, os=vm.osName,  loc_host=host)
+                    continue
         except Exception as e:
-            LogHelper.append(' '.join(r'DB.updateSHVM error:', str(e)))
+            LogHelper.append(' '.join([r'DB.updateSHVM error:', str(e)]))
 
     @classmethod
     def getSHVM(DB):
