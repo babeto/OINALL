@@ -1,6 +1,7 @@
 import os
 import sys
-
+import threading
+import datetime
 
 rootPath = os.path.abspath(os.path.join(os.getcwd(),".."))
 sys.path.append(rootPath)
@@ -19,7 +20,6 @@ class Lab(object):
     phymachinfo = []
 
     vmsinfo = []
-
 
     @classmethod
     def getallphysicalmachines(Lab):
@@ -49,6 +49,32 @@ class Lab(object):
         Lab.vmsinfo = vms
         return Lab.vmsinfo
 
+
+    
+    @classmethod
+    def scanandsave(Lab,vm):
+        vm.installedUpdate = vm.getInstalledUpdate()
+        vm.scancompletetime = datetime.datetime.now()
+        DB.saveVM(vm)
+
+
+    @classmethod
+    def scanallvmsParallel(Lab):
+        allvms = []
+        allvmsthread = []
+        for phyname in Lab.physicalmachines:
+            phym = PhysicalMachine(phyname)
+            vms = phym.getallvms()
+            allvms.extend(vms)
+        for vm in allvms:
+            print('start scan for %s'%vm.machineName)
+            th = threading.Thread(target = Lab.scanandsave,args = (vm,))
+            th.start()
+            allvmsthread.append(th)
+        for th in allvmsthread:
+            print('u')
+            print(th.join())
+
     @classmethod
     def savephysicalinfo(Lab):
         DB.saveSHPhyMach(Lab.phymachinfo)
@@ -67,4 +93,5 @@ if __name__ == "__main__":
     #Lab.savephysicalinfo()
     print("save completed")
     Lab.scanallvms()
-    Lab.savevmsinfo()
+    #Lab.savevmsinfo()
+    #Lab.scanallvmsParallel()

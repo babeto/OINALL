@@ -1,5 +1,9 @@
+import os
+import subprocess
 
 from Schedule.Machine import Machine
+from WMIHelper import WMIHelper
+from Schedule.Helper.PowerShellHelper import PowerShellHelper
 
 class VirtualMachine(Machine):
     """description of class"""
@@ -9,6 +13,7 @@ class VirtualMachine(Machine):
         self.ip = None
         self.vmid=None
         self.hostName=None
+        self.userName = r'vlan974\administrator'
 
 
     def getvmid():
@@ -19,10 +24,15 @@ class VirtualMachine(Machine):
         return self.hostName
 
     def getInstalledUpdate(self):
+
+        print("scan %s started..."% self.machineName)
         if self.ip == None:
-            return None
-        else:
-            return super(VirtualMachine, self).getInstalledUpdate(self.ip, self.userName, self.password)
+            print('try to get ip')
+            self.ip = PowerShellHelper.getvmip(self.hostName, r'.\administrator', r'User@123', self.machineName)
+            if self.ip == None:
+                return None
+
+        return super(VirtualMachine, self).getInstalledUpdate(self.ip, self.userName, self.password)
 
 class mytest():
     pass

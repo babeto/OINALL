@@ -27,7 +27,7 @@ if(!$?)
 # 2. Get VM's IP
 $IPS = Invoke-Command -Session $Session -ScriptBlock { 
     param($VMName)
-    return (Get-VM -Name $VMName | Get-VMNetworkAdapter).ipAddresses;
+    return (Get-VM -Name $VMName | Get-VMNetworkAdapter).ipAddresses[0];
     } -Args $VMName
 Remove-PSSession -Session $Session; # Close PS Session.
 return $IPS;

@@ -54,6 +54,21 @@ class DB(object):
         return phymachinfo
 
     @classmethod
+    def saveVM(DB,vm):
+        try:
+            host = SHHost.objects.get(host_name=vm.hostName)
+            try:
+                shvm = SHVirtualMachine.objects.get(vmid = vm.vmid)
+                shvm.ip = vm.ip
+                shvm.installedupdate = vm.installedUpdate
+                shvm.os = vm.osName
+                shvm.save()
+            except SHVirtualMachine.DoesNotExist:
+                SHVirtualMachine.objects.create(vm_name=vm.machineName,vmid=vm.vmid,ip=vm.ip, installedupdate=vm.installedUpdate, os=vm.osName,  loc_host=host)
+        except Exception as e:
+            LogHelper.append(' '.join([r'DB.updateSHVM error:', str(e)]))
+
+    @classmethod
     def saveSHVM(DB,vmsinfo):
         try:
             for vm in vmsinfo:

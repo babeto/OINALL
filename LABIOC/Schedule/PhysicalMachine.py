@@ -14,7 +14,7 @@ sys.path.append(curPath)
 from Machine import Machine
 from VirtualMachine import VirtualMachine
 from HyperV import HyperV
-from Helper.WMIHelper import WMIHelper
+from WMIHelper import WMIHelper
 
 
 class PhysicalMachine(Machine):
