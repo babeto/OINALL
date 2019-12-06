@@ -1,6 +1,6 @@
 import sqlite3
 hostlist=[]
-iterator = open("allhost.txt")
+iterator = open("machinelist.txt")
 for host in iterator:
     ithost = host.split()
     hostlist.append(ithost)
@@ -8,14 +8,15 @@ for host in iterator:
 
 db=sqlite3.connect("db.sqlite3")
 cursor=db.cursor()
-query = "insert into LA_SHHost (owner, host_name) values (? , ?)"
+query = "insert or ignore into LA_SHHost (owner, machine_name) values (? , ?)"
 
 
 for ithost in hostlist:
-    owner = ithost[0]
-    name = ithost[1]
+    owner = r'Lab'
+    name = ithost[0]
     values = (str(owner), str(name))
     cursor.execute(query, values)
+    print(name)
 
 cursor.close()
 db.commit()
@@ -24,7 +25,7 @@ db.close()
 db=sqlite3.connect("db.sqlite3")
 cursor=db.cursor()
 
-cursor.execute("select * from LA_SHHost")
+cursor.execute("select machine_name from LA_SHHost")
 results=cursor.fetchall()
 for row in results:
     print(row)

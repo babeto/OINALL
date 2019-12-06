@@ -7,20 +7,38 @@
     {% csrf_token %}
         <table border="1">
             <tr class="title">
-                <td>O</td>
+                <td>No.</td>
                 <td>Machine</td>
                 <td>Owner</td>
+                <td>OS</td>
+                <td>LatestCU</td>
+                <td>RebootPending</td>
+                <td>Compliant</td>
             </tr>
         {% for host in all_sh_host %}
-
             <tr>
-                <td><input type="checkbox" name="host_name" value="{{host.host_name}}" /></td>
-                <td><a href="{% url 'LA:detail' host.host_name %}">{{host.host_name}}</a> </td>
-                <td><a href="{% url 'LA:owner' host.owner%}">{{host.owner}}</a></td>
+                <td>{{ forloop.counter }}</td>
+                <td><a href="{% url 'LA:details_shhost' host.machine_name %}">{{host.machine_name}}</a> </td>
+                <td>{{host.owner}}</td>
+                {% if host.os is None %}
+                    <td>Machine turned off or offline</td>
+                {% else %}
+                    <td>{{host.os}}</td>
+                {% endif %}
+                {% if host.lastcu is None %}
+                    <td>None</td>
+                {% else %}
+                    <td>{{host.lastcu}}</td>
+                {% endif %}
+                {% if host.rebootrequired == True %}
+                    <td>Need Reboot</td>
+                {% else %}
+                    <td>No</td>
+                {% endif %}
+                <td>{{host.compliant}}</td>
             </tr>
         {% endfor %}
         </table>
-        <input type="submit", value="select MACHINES" />
 {% else %}
     <p>no host</p>
 {% endif %}

@@ -1,0 +1,56 @@
+﻿{% extends "base.html" %}
+{% block content %}
+
+<div class="content">
+{% if azureVM %}
+<form action="{% url 'LA:detailList' %} " method="POST">
+    {% csrf_token %}
+        <table border="1">
+            <tr class="title">
+                <td>O</td>
+                <td>Machine</td>
+                <td>Owner</td>
+                <td>ResourceGroup</td>
+                <td>Subscription</td>
+                <td>LatestCU</td>
+                <td>RebootPending</td>
+                <td>Compliant</td>
+            </tr>
+        {% for azm in azureVM %}
+            <tr>
+                <td><input type="checkbox" name="azm.machine_name" value="{{azm.machine_name}}" /></td>
+                <td><a href="{% url 'LA:detail' azm.machine_name %}">{{azm.machine_name}}</a> </td>
+                <td>{{azm.owner}}</td>
+                {% if azm.resourcegroupname is None %}
+                    <td>Machine turned off or offline</td>
+                {% else %}
+                    <td>{{azm.resourcegroupname}}</td>
+                {% endif %}
+                {% load split %}
+                {% with id=azm.resourceid   %}
+                {% with array=id|split:"/" %}
+                <td>{{array.2}}</td>
+                {% endwith %}
+                {% endwith %}
+                {% if azm.lastcu is None %}
+                    <td>None</td>
+                {% else %}
+                    <td>{{azm.lastcu}}</td>
+                {% endif %}
+                {% if azm.rebootrequired == True %}
+                    <td>Need Reboot</td>
+                {% else %}
+                    <td>No</td>
+                {% endif %}
+                <td>{{azm.compliant}}</td>
+            </tr>
+        {% endfor %}
+        </table>
+        <input type="submit", value="select MACHINES" />
+{% else %}
+    <p>no Azure Machines</p>
+{% endif %}
+</form>
+</div>
+
+{% endblock %}

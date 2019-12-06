@@ -8,7 +8,7 @@
     <title>CMSE Lab</title>
 </head>
 <body>
-    <div id="header"><span>CMSE LAB Management</span></div>
+    <div id="header"><span>CMSE LAB</span></div>
     <div id="navigation">
         <ul>
             <li>
@@ -23,13 +23,19 @@
             <li>
                 <a id="lnkRedVM" href="{% url 'LA:redVM' %}">Redmond VMs</a>
             </li>
+            <li>
+                <a id="lnkAzure" href="{% url 'LA:azureVM' %}">Azure Machines</a>
+            </li>
         </ul>
     </div>
-    <div id="divide"><hr align="center" color =" #987cb9" size="1" /></div>
+    <div id="divide"><hr align="center" color ="black" size="1" /></div>
     <div id="content">
         {% block content %}
         {% endblock %}
     </div>
-    <div class="page-footer"><span>Power by CMSE LAB</span></div>
+     
 </body>
 </html>
+<footer>
+    <div class="page-footer"><span>Power by CMSE LAB</span></div>
+</footer>

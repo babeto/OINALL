@@ -28,7 +28,7 @@ $UpdateInformations = Invoke-Command -Session $Session -ScriptBlock{
                         # Search product updates
                         $Searcher = New-Object -ComObject "Microsoft.Update.Searcher";
                         $Count = $Searcher.GetTotalHistoryCount();
-                        $Updates = $Searcher.QueryHistory(0, $Count);                        
+                        $Updates = $Searcher.QueryHistory(0, $Count);
                         foreach($update in $Updates)
                         {
                             $Title = $update.Title

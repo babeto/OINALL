@@ -262,3 +262,5 @@ __pycache__/
 /LABIOC/env
 /LABIOC/static/admin
 /LABIOC/.mypy_cache/3.6
+/LABIOC/db.sqlite3
+/LABIOC/Schedule/Config.py

@@ -3,8 +3,7 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <Name>LABIOC</Name>
     <RootNamespace>LABIOC</RootNamespace>
-    <InterpreterId>
-    </InterpreterId>
+    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -31,7 +30,34 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="LA\templatetags\split.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LA\templatetags\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Schedule\AzureLab.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Schedule\AzureMachine.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Schedule\Config.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Schedule\DBEval.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Schedule\Email.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Schedule\Helper\IPHelper.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Schedule\Helper\XMLHelper.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Schedule\ImportHost.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Schedule\Lab.py">
@@ -40,13 +66,22 @@
     <Compile Include="Schedule\DB.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Schedule\Helper\MyJsonHelper.py">
+    <Compile Include="Schedule\Helper\OutputHelper.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Schedule\Helper\__init__.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Schedule\HyperV.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Schedule\Report.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Schedule\SchPatch.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Schedule\SchTask.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Schedule\Script.py">
@@ -82,7 +117,7 @@
     <Compile Include="LA\sheduletask\Machine.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Schedule\Helper\WMIHelper.py">
+    <Compile Include="Schedule\WMIHelper.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="LA\sheduletask\__init__.py">
@@ -105,12 +140,24 @@
     <Compile Include="LA\__init__.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Schedule\Helper\PowerShellScripts\TestPSRemoting.ps1" />
+    <Content Include="Schedule\PowerShellScripts\DNSReset.bat">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Schedule\PowerShellScripts\ScheduleWUJob.ps1" />
+    <Content Include="Schedule\PowerShellScripts\TestPSRemoting.ps1">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Schedule\PowerShellScripts\WUInstall.ps1" />
+    <Content Include="Schedule\PowerShellScripts\WUJob.ps1" />
+    <None Include="CustomProfile.pubxml" />
     <Content Include="LA\sheduleTask\PowerShellScripts\AddMachineIntoTrustedHost.ps1" />
     <Content Include="LA\sheduleTask\PowerShellScripts\GetVMIP.ps1" />
     <Content Include="LA\sheduleTask\PowerShellScripts\ScanAllInstalledHotfixes.ps1" />
     <Content Include="LA\sheduleTask\PowerShellScripts\ScanSCEPInformation.ps1" />
     <Content Include="LA\static\LA\StyleLA.css" />
     <Content Include="LA\templates\base.html" />
+    <Content Include="LA\templates\LA\AzureVM.html" />
     <Content Include="LA\templates\LA\detailList.html" />
     <Content Include="LA\templates\LA\details.html" />
     <Content Include="LA\templates\LA\owner.html" />
@@ -119,12 +166,19 @@
     <Content Include="LA\templates\LA\SHVM.html" />
     <Content Include="requirements.txt" />
     <Content Include="LA\templates\LA\index.html" />
+    <Content Include="Schedule\Helper\PowerShellScripts\AddMachineIntoTrustedHost.ps1" />
+    <Content Include="Schedule\Helper\PowerShellScripts\GetVMIP.ps1" />
+    <Content Include="Schedule\Helper\PowerShellScripts\ScanAllInstalledHotfixes.ps1" />
+    <Content Include="Schedule\Helper\PowerShellScripts\ScanSCEPInformation.ps1" />
     <Content Include="Schedule\PowerShellScripts\AddMachineIntoTrustedHost.ps1" />
+    <Content Include="Schedule\PowerShellScripts\GetAzureVM.ps1" />
     <Content Include="Schedule\PowerShellScripts\GetVMIP.ps1" />
+    <Content Include="Schedule\PowerShellScripts\runWUJob.bat" />
     <Content Include="Schedule\PowerShellScripts\ScanAllInstalledHotfixes.ps1" />
     <Content Include="Schedule\PowerShellScripts\ScanSCEPInformation.ps1" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="LA\templatetags\" />
     <Folder Include="Schedule\Helper\" />
     <Folder Include="LABIOC\" />
     <Folder Include="LA\" />
@@ -136,6 +190,7 @@
     <Folder Include="LA\templates\" />
     <Folder Include="LA\templates\LA\" />
     <Folder Include="Schedule\" />
+    <Folder Include="Schedule\Helper\PowerShellScripts\" />
     <Folder Include="Schedule\PowerShellScripts\" />
   </ItemGroup>
   <ItemGroup>

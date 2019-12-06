@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>CMSE LAB</title>
+            <style>
+                table {table-layout:fixed}
+            </style>
+        </head>
+        <body>
+        
+        <b style="font-family: Microsoft YaHei">Shanghai hosts NOT compliant or NOT scanned:</b>
+        <table id='result_table'>
+            <tr id='header_row' class="text-center success" style="font-weight: bold;font-size: 14px;background-color:lightgrey">
+                <th>No.</th>    
+                <th>Machine</th>
+                <th>Owner</th>
+                <th>OS</th>
+                <th>LatestCU</th>
+                <th>RebootPending</th>
+                <th>Compliant</th>
+            </tr>
+            
+        <tr>
+            <td>1</td>
+            <td>cmse-2819202</td>
+            <td>Dora</td>
+            <td>Microsoft Windows Server 2016 Datacenter</td>
+            <td>2019-10 Cumulative Update for Windows Server 2016 for x64-based Systems (KB4519998)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>MSD2880366</td>
+            <td>Dora</td>
+            <td>Microsoft Windows Server 2016 Datacenter</td>
+            <td>2019-10 Cumulative Update for Windows Server 2016 for x64-based Systems (KB4519998)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>MSD-3477155</td>
+            <td>Peter</td>
+            <td>None</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>MSD-3232417</td>
+            <td>Team</td>
+            <td>None</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 R2 for x64-based Systems (KB4525243)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>SHANOVA4DB</td>
+            <td>Johnson</td>
+            <td>Microsoft Windows Server 2008 R2 Enterprise </td>
+            <td>2019-10 Security Monthly Quality Rollup for Windows Server 2008 R2 for x64-based Systems (KB4519976)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>MSD-3232439</td>
+            <td>Sonic</td>
+            <td>Microsoft Windows Server 2008 R2 Datacenter </td>
+            <td>2019-10 Security Monthly Quality Rollup for Windows Server 2008 R2 for x64-based Systems (KB4519976)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>msd-3232445</td>
+            <td>Lab</td>
+            <td>None</td>
+            <td>2019-10 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4520007)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>msd-3232549</td>
+            <td>Lab</td>
+            <td>None</td>
+            <td>2019-10 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4520007)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>MSD-3230063</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2016 Datacenter</td>
+            <td></td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>MSD-1531336</td>
+            <td>Lab</td>
+            <td>None</td>
+            <td>2019-10 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4520007)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>msd-3477158</td>
+            <td>Lab</td>
+            <td>None</td>
+            <td>2019-10 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4524154)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td>MSD-3230352</td>
+            <td>Lab</td>
+            <td>None</td>
+            <td>2019-09 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4516055)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>CM-1531343</td>
+            <td>Lab</td>
+            <td>None</td>
+            <td>2019-10 Security Monthly Quality Rollup for Windows Server 2008 for x64-based Systems (KB4520002)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>MSD-3230351</td>
+            <td>Lab</td>
+            <td>None</td>
+            <td>2019-10 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4520007)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td>msd-3230062</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2016 Datacenter</td>
+            <td></td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td>msd-3230065</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2016 Datacenter</td>
+            <td></td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>17</td>
+            <td>msd-3230059</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2016 Datacenter</td>
+            <td></td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>18</td>
+            <td>msd-3230067</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2016 Datacenter</td>
+            <td></td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>19</td>
+            <td>msd-3230064</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2016 Datacenter</td>
+            <td></td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>20</td>
+            <td>msd-3230066</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2016 Datacenter</td>
+            <td></td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>21</td>
+            <td>CMSE1531346</td>
+            <td>Lab</td>
+            <td>None</td>
+            <td>2019-10 Cumulative Update for Windows Server 2016 for x64-based Systems (KB4519998)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>22</td>
+            <td>MSD-3232885</td>
+            <td>Lab</td>
+            <td>None</td>
+            <td></td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>23</td>
+            <td>MSD-3232880</td>
+            <td>Lab</td>
+            <td>None</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>24</td>
+            <td>CMSE3230068</td>
+            <td>Lab</td>
+            <td>None</td>
+            <td>2019-08 Security Monthly Quality Rollup for Windows Server 2012 R2 for x64-based Systems (KB4512488)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>25</td>
+            <td>cmse-2336046</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2016 Datacenter</td>
+            <td>2019-10 Cumulative Update for Windows Server 2016 for x64-based Systems (KB4519998)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>26</td>
+            <td>MSD-5682401</td>
+            <td>Lab</td>
+            <td>None</td>
+            <td>2019-10 Cumulative Update for Windows Server 2019 (1809) for x64-based Systems (KB4520062)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        </table>
+        <br/>
+        
+        <b style="font-family: Microsoft YaHei">Shanghai hosts:</b>
+        <table id='result_table'>
+            <tr id='header_row' class="text-center success" style="font-weight: bold;font-size: 14px;background-color:lightgrey">
+                <th>No.</th>    
+                <th>Machine</th>
+                <th>Owner</th>
+                <th>OS</th>
+                <th>LatestCU</th>
+                <th>RebootPending</th>
+                <th>Compliant</th>
+            </tr>
+            
+        <tr>
+            <td>1</td>
+            <td>MSD-3232966</td>
+            <td>Amanda</td>
+            <td>Microsoft Windows Server 2012 R2 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 R2 for x64-based Systems (KB4525243)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>cmse-34771501</td>
+            <td>Amanda</td>
+            <td>Microsoft Windows Server 2016 Datacenter</td>
+            <td>2019-11 Cumulative Update for Windows Server 2016 for x64-based Systems (KB4525236)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>MSDSE-3232050</td>
+            <td>Alvin</td>
+            <td>Microsoft Windows Server 2012 R2 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 R2 for x64-based Systems (KB4525243)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>MSD-2880384</td>
+            <td>Alvin</td>
+            <td>Microsoft Windows Server 2012 R2 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 R2 for x64-based Systems (KB4525243)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>MSD-3477151</td>
+            <td>Carina</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>MSD-3230061</td>
+            <td>Dora</td>
+            <td>Microsoft Windows Server 2012 R2 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 R2 for x64-based Systems (KB4525243)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>cmse-2819202</td>
+            <td>Dora</td>
+            <td>Microsoft Windows Server 2016 Datacenter</td>
+            <td>2019-10 Cumulative Update for Windows Server 2016 for x64-based Systems (KB4519998)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>MSD2880366</td>
+            <td>Dora</td>
+            <td>Microsoft Windows Server 2016 Datacenter</td>
+            <td>2019-10 Cumulative Update for Windows Server 2016 for x64-based Systems (KB4519998)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>cmse-2815913</td>
+            <td>Frank</td>
+            <td>Microsoft Windows Server 2016 Datacenter</td>
+            <td>2019-11 Cumulative Update for Windows Server 2016 for x64-based Systems (KB4525236)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>CMSE-3232284</td>
+            <td>Johnson</td>
+            <td>Microsoft Windows Server 2019 Datacenter</td>
+            <td>2019-11 Cumulative Update for Windows Server 2019 for x64-based Systems (KB4523205)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>MSD-2880374</td>
+            <td>Joyce</td>
+            <td>Microsoft Windows Server 2012 R2 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 R2 for x64-based Systems (KB4525243)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td>cmse-3823258</td>
+            <td>Joyce</td>
+            <td>Microsoft Windows Server 2016 Datacenter</td>
+            <td>2019-11 Cumulative Update for Windows Server 2016 for x64-based Systems (KB4525236)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>MSD-3232883A</td>
+            <td>Morin</td>
+            <td>Microsoft Windows Server 2012 R2 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 R2 for x64-based Systems (KB4525243)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>MSD-3477153</td>
+            <td>Morin</td>
+            <td>Microsoft Windows Server 2016 Datacenter</td>
+            <td>2019-11 Cumulative Update for Windows Server 2016 for x64-based Systems (KB4525236)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td>CMSE-3230359</td>
+            <td>Lyna</td>
+            <td>Microsoft Windows Server 2016 Datacenter</td>
+            <td>2019-11 Cumulative Update for Windows Server 2016 for x64-based Systems (KB4525236)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td>MSD-2864408</td>
+            <td>Perron</td>
+            <td>Microsoft Windows Server 2012 R2 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 R2 for x64-based Systems (KB4525243)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>17</td>
+            <td>cmse2819520</td>
+            <td>Perron</td>
+            <td>Microsoft Windows Server 2016 Datacenter</td>
+            <td>2019-11 Cumulative Update for Windows Server 2016 for x64-based Systems (KB4525236)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>18</td>
+            <td>MSD-3477155</td>
+            <td>Peter</td>
+            <td>None</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>19</td>
+            <td>msd-3230356</td>
+            <td>Peter</td>
+            <td>Microsoft Windows Server 2012 R2 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 R2 for x64-based Systems (KB4525243)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>20</td>
+            <td>MSD-2880378</td>
+            <td>Raina</td>
+            <td>Microsoft Windows Server 2012 R2 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 R2 for x64-based Systems (KB4525243)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>21</td>
+            <td>MSD-3230354</td>
+            <td>Raina</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>22</td>
+            <td>MSDSE-3232546</td>
+            <td>Sonicpeter</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>23</td>
+            <td>MSD-2864418</td>
+            <td>Team</td>
+            <td>Microsoft Windows Server 2012 R2 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 R2 for x64-based Systems (KB4525243)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>24</td>
+            <td>MSD-1531704</td>
+            <td>Team</td>
+            <td>Microsoft Windows Server 2012 R2 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 R2 for x64-based Systems (KB4525243)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>25</td>
+            <td>CMSE-3232052</td>
+            <td>Team</td>
+            <td>Microsoft Windows Server 2012 R2 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 R2 for x64-based Systems (KB4525243)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>26</td>
+            <td>MSDSE-3232545</td>
+            <td>Team</td>
+            <td>Microsoft Windows Server 2016 Datacenter</td>
+            <td>2019-11 Cumulative Update for Windows Server 2016 for x64-based Systems (KB4525236)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>27</td>
+            <td>MSD-3232417</td>
+            <td>Team</td>
+            <td>None</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 R2 for x64-based Systems (KB4525243)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>28</td>
+            <td>SHANOVA4DB</td>
+            <td>Johnson</td>
+            <td>Microsoft Windows Server 2008 R2 Enterprise </td>
+            <td>2019-10 Security Monthly Quality Rollup for Windows Server 2008 R2 for x64-based Systems (KB4519976)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>29</td>
+            <td>MSD-3232439</td>
+            <td>Sonic</td>
+            <td>Microsoft Windows Server 2008 R2 Datacenter </td>
+            <td>2019-10 Security Monthly Quality Rollup for Windows Server 2008 R2 for x64-based Systems (KB4519976)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>30</td>
+            <td>NOVASHAFS01</td>
+            <td>Johnson</td>
+            <td>Microsoft® Windows Server® 2008 Enterprise </td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2008 for x64-based Systems (KB4525234)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>31</td>
+            <td>MSD-1531350</td>
+            <td>Johnson</td>
+            <td>Microsoft® Windows Server® 2008 Enterprise </td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2008 for x64-based Systems (KB4525234)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>32</td>
+            <td>msd3232551</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2008 R2 Enterprise </td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2008 R2 for x64-based Systems (KB4525235)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>33</td>
+            <td>msd-3232445</td>
+            <td>Lab</td>
+            <td>None</td>
+            <td>2019-10 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4520007)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>34</td>
+            <td>msd-3232549</td>
+            <td>Lab</td>
+            <td>None</td>
+            <td>2019-10 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4520007)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>35</td>
+            <td>msd-3232550</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>36</td>
+            <td>CMSE3232051</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2016 Datacenter</td>
+            <td>2019-11 Cumulative Update for Windows Server 2016 for x64-based Systems (KB4525236)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>37</td>
+            <td>CMSE3232049</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 R2 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 R2 for x64-based Systems (KB4525243)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>38</td>
+            <td>MSD-3230063</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2016 Datacenter</td>
+            <td></td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>39</td>
+            <td>MSD-3232974</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>40</td>
+            <td>MSD-3232967</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>41</td>
+            <td>MSD-3477165</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>42</td>
+            <td>msd-3477156</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>43</td>
+            <td>MSD-3230348</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>44</td>
+            <td>MSD-3230349</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>45</td>
+            <td>MSD-3477137</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>46</td>
+            <td>MSD-1531336</td>
+            <td>Lab</td>
+            <td>None</td>
+            <td>2019-10 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4520007)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>47</td>
+            <td>msd-3477158</td>
+            <td>Lab</td>
+            <td>None</td>
+            <td>2019-10 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4524154)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>48</td>
+            <td>MSD-1531349</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>49</td>
+            <td>MSD-3230350</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>50</td>
+            <td>MSD-3230352</td>
+            <td>Lab</td>
+            <td>None</td>
+            <td>2019-09 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4516055)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>51</td>
+            <td>MSD-1531339</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>52</td>
+            <td>CM-1531343</td>
+            <td>Lab</td>
+            <td>None</td>
+            <td>2019-10 Security Monthly Quality Rollup for Windows Server 2008 for x64-based Systems (KB4520002)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>53</td>
+            <td>MSD-3230351</td>
+            <td>Lab</td>
+            <td>None</td>
+            <td>2019-10 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4520007)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>54</td>
+            <td>MSD-1531344</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>55</td>
+            <td>MSD-3477154</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>56</td>
+            <td>msd-3477157</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>57</td>
+            <td>MSD-3477166</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>58</td>
+            <td>MSD-3477174</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>59</td>
+            <td>msd-3477164</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>60</td>
+            <td>msd-3477167</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>61</td>
+            <td>msd-3230062</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2016 Datacenter</td>
+            <td></td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>62</td>
+            <td>msd-3230065</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2016 Datacenter</td>
+            <td></td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>63</td>
+            <td>msd-3230059</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2016 Datacenter</td>
+            <td></td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>64</td>
+            <td>msd-3230067</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2016 Datacenter</td>
+            <td></td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>65</td>
+            <td>msd-3230064</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2016 Datacenter</td>
+            <td></td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>66</td>
+            <td>msd-3230066</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2016 Datacenter</td>
+            <td></td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>67</td>
+            <td>MSD-3477001</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>68</td>
+            <td>MSD-1531337</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>69</td>
+            <td>CMSE1531346</td>
+            <td>Lab</td>
+            <td>None</td>
+            <td>2019-10 Cumulative Update for Windows Server 2016 for x64-based Systems (KB4519998)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>70</td>
+            <td>MSD-1531340</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>71</td>
+            <td>MSD-3232885</td>
+            <td>Lab</td>
+            <td>None</td>
+            <td></td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>72</td>
+            <td>MSD-3232902</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>73</td>
+            <td>MSD-3232880</td>
+            <td>Lab</td>
+            <td>None</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>74</td>
+            <td>CMSE3230068</td>
+            <td>Lab</td>
+            <td>None</td>
+            <td>2019-08 Security Monthly Quality Rollup for Windows Server 2012 R2 for x64-based Systems (KB4512488)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>75</td>
+            <td>MSD-3232901</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>76</td>
+            <td>MSD-3232884</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>77</td>
+            <td>MSD-3477178</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>78</td>
+            <td>msd-3477169</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>79</td>
+            <td>msd-3477171</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>80</td>
+            <td>msd-3477168</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>81</td>
+            <td>msd-3477170</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>82</td>
+            <td>msd-3477173</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>83</td>
+            <td>msd-3477177</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>84</td>
+            <td>msd-3477176</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>85</td>
+            <td>MSD-3232964</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>86</td>
+            <td>MSD-3232963</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>87</td>
+            <td>MSD-3232965</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>88</td>
+            <td>MSD-3232968</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>89</td>
+            <td>MSD-3232969</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>90</td>
+            <td>MSD-3232972</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>91</td>
+            <td>MSD-3232973</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>92</td>
+            <td>MSD-3232975</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>93</td>
+            <td>MSD-3232962</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>94</td>
+            <td>MSD-3232970</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>95</td>
+            <td>msd-3477163</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>96</td>
+            <td>MSD-3477161</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>97</td>
+            <td>msd-3477162</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>98</td>
+            <td>MSD-3477152</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>99</td>
+            <td>msd-3477159</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>100</td>
+            <td>MSD-3477160</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 for x64-based Systems (KB4525246)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>101</td>
+            <td>STBC-1531334</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2019 Datacenter</td>
+            <td>2019-11 Cumulative Update for Windows Server 2019 (1809) for x64-based Systems (KB4523205)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>102</td>
+            <td>MSD-2880363</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 R2 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 R2 for x64-based Systems (KB4525243)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>103</td>
+            <td>MSD-28644121</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 R2 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 R2 for x64-based Systems (KB4525243)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>104</td>
+            <td>MSD-28644151</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 R2 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 R2 for x64-based Systems (KB4525243)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>105</td>
+            <td>MSD-28803791</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 R2 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 R2 for x64-based Systems (KB4525243)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>106</td>
+            <td>MSD-2880365</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 R2 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 R2 for x64-based Systems (KB4525243)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>107</td>
+            <td>cmse-2336046</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2016 Datacenter</td>
+            <td>2019-10 Cumulative Update for Windows Server 2016 for x64-based Systems (KB4519998)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>108</td>
+            <td>MSD-3803023</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2019 Datacenter</td>
+            <td>2019-11 Cumulative Update for Windows Server 2019 for x64-based Systems (KB4523205)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>109</td>
+            <td>MSD-5682401</td>
+            <td>Lab</td>
+            <td>None</td>
+            <td>2019-10 Cumulative Update for Windows Server 2019 (1809) for x64-based Systems (KB4520062)</td>
+            <td>No</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>110</td>
+            <td>MSD-3803018</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2019 Datacenter</td>
+            <td>2019-11 Cumulative Update for Windows Server 2019 for x64-based Systems (KB4523205)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>111</td>
+            <td>MSD-2864416</td>
+            <td>Lab</td>
+            <td>Microsoft Windows Server 2012 R2 Datacenter</td>
+            <td>2019-11 Security Monthly Quality Rollup for Windows Server 2012 R2 for x64-based Systems (KB4525243)</td>
+            <td>No</td>
+            <td>True</td>
+        </tr>
+        </table>
+        <br/>
+        
+        </body>
+        </html>

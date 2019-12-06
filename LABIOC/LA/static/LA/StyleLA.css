@@ -4,7 +4,7 @@ body
 
 table .title {
     color: white;
-    background-color: #006699;
+    background-color: black;
     font-weight: bold;
 }
 
@@ -24,16 +24,29 @@ table .title {
 
 #navigation ul li {
     display: inline;
-    
+    padding: 5px
 }
 
 #navigation ul li a {
     font-size: 25px;
+    color: black;
     text-align: center;
     font-weight: bold;
+    text-decoration: none;
 }
 
-#divide hr{
+#navigation ul li a:visited {
+    color: black;
+}
+
+
+#navigation ul li a:hover {
+    color: white;
+    background-color: grey
+}
+
+
+#divide hr {
     margin: 10px 30px 10px 30px;
 }
 

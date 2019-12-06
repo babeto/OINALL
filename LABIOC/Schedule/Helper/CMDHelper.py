@@ -16,3 +16,7 @@ class CMDHelper(object):
             return True
         else:
             return False
+
+if __name__ == '__main__':
+    status = CMDHelper.testconnection('10.177.44.105')
+    print(status)

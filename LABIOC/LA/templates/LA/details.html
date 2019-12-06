@@ -1,13 +1,76 @@
-﻿<!DOCTYPE html>
+﻿{% extends "base.html" %}
+{% block content %}
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+<div class="content">
+{% if machine %}
+        <table border="1">
+            <tr>
+                <th>Machine</th>
+                <td>{{ machine.machine_name}}</td>
+            </tr>
+            <tr>
+            <th>VMID</th>
+                {% if machine.vmid is None %}
+                    <td>NO ID</td>
+                {% else %}
+                    <td>{{machine.vmid}}</td>
+                {% endif %}
+            </tr>
+            <tr>
+            <tr>
+                <th>Owner</th>
+                <td>{{ machine.owner}}</td>
+            </tr>
+            <tr>
+                <th>IP</th>
+                <td>{{ machine.ip}}</td>
+            </tr>
+            <tr>
+                <th>OS Version</th>
+                <td>{{ machine.osversion}}</td>
+            </tr>
+            <tr>
+                <th>OS</th>
+                {% if machine.os is None %}
+                    <td>Machine turned off or offline</td>
+                {% else %}
+                    <td>{{machine.os}}</td>
+                {% endif %}
+            </tr>
 
-    <p>{{ sel_host.owner }}</p>
+            <tr>
+                <th>LatestCU</th>
+                {% if machine.lastcu is None %}
+                    <td>None</td>
+                {% else %}
+                    <td>{{machine.lastcu}}</td>
+                {% endif %}
+            </tr>
 
-</body>
-</html>
+            <tr>
+                <th>ALL Updates</th>
+                {% if machine.installedupdate is None %}
+                    <td>None</td>
+                {% else %}
+                    <td></td>
+                {% endif %}
+            </tr>
+            <tr>
+                <th>Reboot Pending</th>
+                {% if machine.rebootrequired == True %}
+                    <td>Need Reboot</td>
+                {% else %}
+                    <td>No</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <th>Compliant</th>
+                <td>{{machine.compliant}}</td>
+            </tr>
+        </table>
+{% else %}
+    <p>no machine added to template</p>
+{% endif %}
+</div>
+
+{% endblock %}

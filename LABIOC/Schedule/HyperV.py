@@ -10,7 +10,7 @@ class HyperV(object):
         pass
 
     @classmethod
-    def getVirtualizationNamespace(osName):
+    def getVirtualizationNamespace(osName): 
         if(osName.find('2008')>0):
             return r"root\virtualization"
         else:

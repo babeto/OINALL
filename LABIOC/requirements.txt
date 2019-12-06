@@ -2,3 +2,5 @@ django >2
 wmi
 pypiwin32
 azure
+exchangelib
+python-ntlm3

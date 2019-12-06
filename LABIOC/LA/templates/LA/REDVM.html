@@ -1,11 +1,57 @@
-<!DOCTYPE html>
+﻿{% extends "base.html" %}
+{% block content %}
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+<div class="content">
+{% if redVM %}
+<form action="{% url 'LA:detailList' %} " method="POST">
+    {% csrf_token %}
+        <table border="1">
+            <tr class="title">
+                <td>O</td>
+                <td>Machine</td>
+                <td>Host</td>
+                <td>OS</td>
+                <td>Lang</td>
+                <td>LatestCU</td>
+                <td>RebootPending</td>
+                <td>Compliant</td>
+                <th>Domain</th>
+                <th>SQL Version</th>
+                <th>VS Installed</th>
+            </tr>
+        {% for vm in redVM %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td><a href="{% url 'LA:details_redvm' vm.machine_name %}">{{vm.machine_name}}</a> </td>
+                <td>{{vm.loc_host}}</td>
+                {% if vm.os == None %}
+                    <td>Machine turned off or offline</td>
+                {% else %}
+                    <td>{{vm.os}}</td>
+                {% endif %}
+                <td>{{vm.oslang}}</td>
+                {% if vm.lastcu is None %}
+                    <td>None</td>
+                {% else %}
+                    <td>{{vm.lastcu}}</td>
+                {% endif %}
+                {% if vm.rebootrequired == True %}
+                    <td>Need Reboot</td>
+                {% else %}
+                    <td>No</td>
+                {% endif %}
+                <td>{{vm.compliant}}</td>
+                <td>{{vm.domainname}}</td>
+                <td>{{vm.sqlversion}}</td>
+                <td>{{vm.vsinstalled}}</td>
+            </tr>
+        {% endfor %}
+        </table>
+        <input type="submit", value="select MACHINES" />
+{% else %}
+    <p>no host</p>
+{% endif %}
+</form>
+</div>
 
-</body>
-</html>
+{% endblock %}
